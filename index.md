@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 title: "home/sh1v4ng"
 description: "Portfolio · Write-ups · Lab notes"
 cover: /assets/images/Personatdesk.jpg
@@ -123,4 +123,3 @@ Here’s the stack I reach for day-to-day:
 - [1337UP Live CTF 2024](/1337up)
 - [Meta Flash CTF](/metaflashctf)
 
-Looking for something specific? Use the sidebar search (or hit `/`)—GitBook style search is now live.
