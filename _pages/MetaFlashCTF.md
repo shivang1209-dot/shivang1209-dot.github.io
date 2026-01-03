@@ -1,3 +1,5 @@
+---
+layout: page
 permalink: /metaflashctf/
 description: "My detailed solutions and Write-ups for Meta Flash CTF."
 title: "Meta Flash CTF Writeups"

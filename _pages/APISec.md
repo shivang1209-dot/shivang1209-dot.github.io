@@ -1,3 +1,5 @@
+---
+layout: page
 permalink: /api-security/
 description: "API Security Notes"
 title: "API Security"

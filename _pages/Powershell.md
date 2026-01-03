@@ -1,3 +1,5 @@
+---
+layout: page
 permalink: /powershell/  
 description: "Penetration testing with PowerShell By EC-Council."  
 title: "Pentesting with PowerShell"  
@@ -14,15 +16,15 @@ Here are the notes I jotted down while completing the course **"Hands-On Penetra
 
 ## List of Learning Paths  
 
-| Learning Path Name | Lecture Number | Description |
-|---------------------|----------------|-------------|
-| [PowerShell Introduction & Basics](/posts/powershell/lecture-1.pdf) | 1 | Starting out by understanding the basics of Windows PowerShell. |
-| [PowerShell Scripting](/posts/powershell/lecture-2.pdf) | 2 | Scripting basic programs with PowerShell. |
-| [Reconnaissance & Scanning](/posts/powershell/lecture-3.pdf) | 3 | Reconnaissance using PowerShell. |
-| [Active Directory - Part 1](/posts/powershell/lecture-4.pdf) | 4 | Using PowerShell to exploit Active Directory (Part 1). |
-| [Active Directory - Part 2](/posts/powershell/lecture-5.pdf) | 5 | Using PowerShell to exploit Active Directory (Part 2). |
-| [PowerShell and Metasploit](/posts/powershell/lecture-6.pdf) | 6 | Using PowerShell with Metasploit to perform exploits. |
-| [Backdoors, Lateral Movement, and Persistence](/posts/powershell/lecture-7.pdf) | 7 | Basic understanding of backdoors, lateral movement, and persistence. |  
+| Learning Path Name                                                              | Lecture Number | Description                                                          |
+| ------------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------- |
+| [PowerShell Introduction & Basics](/posts/powershell/lecture-1.pdf)             | 1              | Starting out by understanding the basics of Windows PowerShell.      |
+| [PowerShell Scripting](/posts/powershell/lecture-2.pdf)                         | 2              | Scripting basic programs with PowerShell.                            |
+| [Reconnaissance & Scanning](/posts/powershell/lecture-3.pdf)                    | 3              | Reconnaissance using PowerShell.                                     |
+| [Active Directory - Part 1](/posts/powershell/lecture-4.pdf)                    | 4              | Using PowerShell to exploit Active Directory (Part 1).               |
+| [Active Directory - Part 2](/posts/powershell/lecture-5.pdf)                    | 5              | Using PowerShell to exploit Active Directory (Part 2).               |
+| [PowerShell and Metasploit](/posts/powershell/lecture-6.pdf)                    | 6              | Using PowerShell with Metasploit to perform exploits.                |
+| [Backdoors, Lateral Movement, and Persistence](/posts/powershell/lecture-7.pdf) | 7              | Basic understanding of backdoors, lateral movement, and persistence. |
 
 Some Powershell Scripts I wrote down during this course (Educational Purpose Only!!) - 
 

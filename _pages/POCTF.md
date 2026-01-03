@@ -1,3 +1,5 @@
+---
+layout: page
 permalink: /poctf/
 description: "My detailed solutions and Write-ups for Pointer Overflow CTF 2024."
 title: "Pointer Overflow CTF 2024 Writeups"

@@ -1,3 +1,5 @@
+---
+layout: page
 permalink: /portswigger/
 description: "Web Exploitation Notes"
 title: "Portswigger Academy Notes"

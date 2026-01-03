@@ -1,4 +1,5 @@
 ---
+layout: page
 permalink: /blogs/
 description: "My blogs on various topics related to cybersecurity and other stuff."
 title: "Blogs By Me"

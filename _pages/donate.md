@@ -1,3 +1,5 @@
+---
+layout: donate
 permalink: /donate/
 description: "Coffee's been expensive lately..."
 title: "Support the Lab"

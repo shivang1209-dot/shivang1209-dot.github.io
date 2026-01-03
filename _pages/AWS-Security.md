@@ -1,3 +1,5 @@
+---
+layout: page
 permalink: /aws-security/
 description: "AWS Security Notes"
 title: "Amazon Web Services Security"

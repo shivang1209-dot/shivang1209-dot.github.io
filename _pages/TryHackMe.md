@@ -1,3 +1,5 @@
+---
+layout: page
 permalink: /thm/
 description: My detailed solutions and Write-ups for TryHackMe Rooms and CTFs.
 title: TryHackMe Writeups
