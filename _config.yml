@@ -12,7 +12,7 @@ url:              "https://shivang1209-dot.github.io"
 baseurl:          ""
 rss:              RSS
 
-theme:            jekyll-theme-hacker
+remote_theme:     pages-themes/hacker@v0.2.0
 
 github_repository: https://github.com/shivang1209-dot
 
