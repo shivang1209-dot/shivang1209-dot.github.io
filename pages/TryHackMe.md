@@ -18,3 +18,4 @@ A gamified, hands-on cyber security training platform that you can access throug
 | [Advent of Cyber 2024](/writeups/thm/aoc2024/)          | Easy     | Free      |
 | [MBR and GPT Analysis](/writeups/thm/mbr-gpt-analysis/) | Medium   | Free      |
 | [Injectics](/writeups/thm/injectics/)                   | Medium   | Premium   |
+| [Archangel](/writeups/thm/archangel/)                   | Easy     | Free      |
