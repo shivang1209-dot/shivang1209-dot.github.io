@@ -1,37 +1,24 @@
 #site-setting
-url: "https://shivang1209-dot.github.io"
-baseurl: ""
+url : "https://shivang1209-dot.github.io"
 github_repository: https://github.com/shivang1209-dot
 theme: jekyll-theme-hacker
 title: home/sh1v4ng
-longtitle: Shivang Tiwari · Cybersecurity
-description: Portfolio · Labs · Walkthroughs · Cybersecurity research notes by Shivang
+description: Welcome to my Portfolio/Write-up/Blogging Website since I'm not a Web Developer.
+name: &name "Shivang"
 show_downloads: false
-
-#site-author
-name: Shivang Tiwari
-author: Shivang Tiwari
-email: shivangtiwari2415@gmail.com
-bio: "Delhi-based security researcher focused on offensive security, DFIR, and cloud attack simulations"
 
 #github page setting
 github:
   is_project_page: false
 
+#site-author
+name : *name 
+bio  : "Dev/Sec"
+
 #footer
-footer_left: 2026 Shivang Tiwari
-footer_right: Privacy Policy
+footer_left: 2025 SH1V4NG
 
 #plugin
 plugins:
   - jekyll-sitemap
   - jekyll-feed
-
-#markdown
-markdown: kramdown
-kramdown:
-  auto_ids: true
-  input: GFM
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    guess_lang: true

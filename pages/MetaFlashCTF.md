@@ -3,7 +3,6 @@ layout: page
 permalink: /metaflashctf/
 description: "My detailed solutions and Write-ups for Meta Flash CTF."
 title: "Meta Flash CTF Writeups"
-nav_order: 60
 ---
 
 <img alt="logo" src="/assets/images/metactf.png" width="35%" />

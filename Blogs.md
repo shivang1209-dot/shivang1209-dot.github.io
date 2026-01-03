@@ -3,7 +3,6 @@ layout: page
 permalink: /blogs/
 description: "My blogs on various topics related to cybersecurity and other stuff."
 title: "Blogs By Me"
-nav_order: 10
 ---
 
 <img alt="logo" src="/assets/images/Medium-Logo.jpg" width="35%" />

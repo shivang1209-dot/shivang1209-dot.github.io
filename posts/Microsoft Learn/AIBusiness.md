@@ -122,4 +122,3 @@ Microsoft uses a **horizon-based framework** to evaluate and prioritize AI inves
   - Developing innovative AI solutions that cross industry boundaries or create new customer needs.  
 
 ---
-

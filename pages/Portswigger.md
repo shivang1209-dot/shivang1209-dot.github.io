@@ -3,7 +3,6 @@ layout: page
 permalink: /portswigger/
 description: "Web Exploitation Notes"
 title: "Portswigger Academy Notes"
-nav_order: 90
 ---
 
 <img alt="logo" src="/assets/images/portswigger.png" width="35%" />

@@ -3,7 +3,6 @@ layout: page
 permalink: /api-security/
 description: "API Security Notes"
 title: "API Security"
-nav_order: 70
 ---
 
 <img alt="logo" src="/assets/images/apisec.jpeg" width="35%" />

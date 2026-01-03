@@ -2,8 +2,6 @@
 layout: donate
 permalink: /donate/
 description: "Coffee's been expensive lately..."
-title: "Support the Lab"
-nav_order: 20
 ---
 
 “No one is useless in this world who lightens the burdens of another.” ― Charles Dickens

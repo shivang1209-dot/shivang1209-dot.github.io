@@ -20,7 +20,7 @@ description: "Notes on ABCs of Startups."
 5. **Misaligned Expectations Among Cofounders**: Misaligned expectations among cofounders can lead to a loss of team cohesion. This is one of the most common causes of startup failure, particularly if it occurs early in the startup's life.  
    ![Founder_alignment_exercise](/assets/images/founder-alignment-exercise.png)
 
-6. **Founders' Commitment**: At some point, founders need to make the decision to step back from other work in order to focus exclusively on building their startup. However, it's a common myth that startup founders should commit full-time to their startup from the beginning.  
+6. **Founders’ Commitment**: At some point, founders need to make the decision to step back from other work in order to focus exclusively on building their startup. However, it's a common myth that startup founders should commit full-time to their startup from the beginning.  
    ![Founder_commitment_milestone](/assets/images/founder-commitment-milestone-worksheet.png)
 
 ---
@@ -197,4 +197,3 @@ The difference between a bootstrapped company and an externally funded one can b
    - Your team members
 
 ---
-

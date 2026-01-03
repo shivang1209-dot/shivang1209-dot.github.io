@@ -2,17 +2,44 @@
 layout: default
 ---
 
-<h1>{{ page.title }}</h1>
+<h1>Donate</h1>
 
-{{ content }}
+{{content}}
+
+<div id="paypal-button-container"></div>
+<script src="" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+          
+      },
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: '1'
+                  }
+              }]
+          });
+      },
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+      }
+  }).render('#paypal-button-container');
+</script>
 
 <hr>
-<h3>Connect</h3>
+<h3> The Abyss</h3>
 <a href="https://github.com/shivang1209-dot"><i class="fab fa-github fa-2x"></i></a>
-<a href="mailto:{{ site.email }}"><i class="fas fa-envelope fa-2x"></i></a>
-<a href="https://medium.com/@sh1v4ng"><i class="fab fa-medium fa-2x"></i></a>
-<a href="https://tryhackme.com/r/p/S4vi0ur"><i class="fas fa-terminal fa-2x"></i></a>
+<a href="https://instagram.com/sh1v4ng"><i class="fab fa-instagram fa-2x"></i></a>
+<a href="mailto:shivangtiwari2415@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
+
 
 <hr>
 <footer style="float:left;"><small>&copy; {{ site.footer_left }}</small></footer>
-<footer style="float:right;"><small><a href="{{ '/privacy_policy' | relative_url }}">{{ site.footer_right }}</a></small></footer>

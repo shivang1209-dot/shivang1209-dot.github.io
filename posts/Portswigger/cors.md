@@ -1,12 +1,3 @@
----
-layout: post
-permalink: /posts/Portswigger/cors
-title: "Cross-Origin Resource Sharing (CORS)"
-date: 2025-01-05 18:00
-tags: Web, CORS, Portswigger
-description: "Portswigger notes on Cross-Origin Resource Sharing attacks and defenses"
----
-
 # Cross-origin resource sharing (CORS)
 
 This learning path provides an in-depth understanding of CORS, including common examples of CORS-based attacks and how to protect against these attacks.

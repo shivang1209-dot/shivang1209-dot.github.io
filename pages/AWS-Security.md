@@ -3,7 +3,6 @@ layout: page
 permalink: /aws-security/
 description: "AWS Security Notes"
 title: "Amazon Web Services Security"
-nav_order: 80
 ---
 
 <img alt="logo" src="/assets/images/aws.jpeg" width="35%" />

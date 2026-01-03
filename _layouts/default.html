@@ -1,87 +1,124 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
 
-	<style>
-		.navbar
-		{
-      overflow: hidden;
-		}
+    <style>
+      /* Original navbar styles, adjusted for responsiveness */
+      .navbar {
+        overflow: hidden;
+      }
 
-    .navbar a
-    {
-      float: left;
-      font-size: 16px;
-      color: white;
-      padding: 2px 15px;
-      text-align: center;
+      .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        padding: 2px 15px;
+        text-align: center;
+        text-decoration: none;
+      }
+      a {
       text-decoration: none;
-    }
+      }
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
 
-    .dropdown
-    {
-      float: left;
-      overflow: hidden;
-    }
+      .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 2px 15px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
 
-    .dropdown .dropbtn
-    {
-      font-size: 16px;
-      border: none;
-      outline: none;
-      color: white;
-      padding: 2px 15px;
-      background-color: inherit;
-      font-family: inherit;
-      margin: 0;
-    }
+      .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: green;
+      }
 
-    .navbar a:hover, .dropdown:hover .dropbtn
-    {
-      background-color: green;
-    }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #202020;
+        min-width: 150px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
 
-    .dropdown-content
-    {
-      display: none;
-      position: absolute;
-      background-color: #202020;
-      min-width: 150px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
+      .dropdown-content a {
+        float: none;
+        color: white;
+        padding: 8px 14px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
 
-    .dropdown-content a
-    {
-      float: none;
-      color: white;
-      padding: 8px 14px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-    }
+      .dropdown-content a:hover {
+        background-color: #4666FF;
+      }
 
-    .dropdown-content a:hover
-    {
-      background-color: #4666FF;
-    }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
 
-    .dropdown:hover .dropdown-content
-    {
-      display: block;
-    }
-	</style>
+      /* Media Queries for mobile responsiveness */
+      @media screen and (max-width: 768px) {
+        .navbar {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
-{% seo %}
+        .navbar a {
+          width: 100%;
+          padding: 12px 15px;
+          text-align: left;
+        }
+
+        .dropdown {
+          width: 100%;
+        }
+
+        .dropdown-content {
+          position: static;
+          display: none;
+          width: 100%;
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+
+        .dropdown-content a {
+          width: 100%;
+          padding: 12px;
+        }
+
+        /* Optional: Adjust the dropdown button on mobile */
+        .dropdown .dropbtn {
+          width: 100%;
+          text-align: left;
+          padding: 12px;
+        }
+      }
+    </style>
   </head>
 
   <body>
-
     <header>
       <div class="container">
         <a id="a-title" href="{{ '/' | relative_url }}">
@@ -93,43 +130,55 @@
           {% if site.show_downloads %}
             <a href="{{ site.github.zip_url }}" class="btn">Download as .zip</a>
             <a href="{{ site.github.tar_url }}" class="btn">Download as .tar.gz</a>
-			<a href="{{ site.github.repository_url }}" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+            <a href="{{ site.github.repository_url }}" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
           {% endif %}
         </section>
 
-          <section class="navbar">
-            <a href="{{ '/' | relative_url }}">Home</a>
-            
-            <div class="dropdown">
-              <button class="dropbtn">CTF Writeups
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="{{ '/1337up/' | relative_url }}">1337UP Live CTF</a>
-                <a href="{{ '/ekoctf/' | relative_url }}">EKOCTF</a>
-                <a href="{{ '/metaflashctf/' | relative_url }}">Meta Flash CTF</a>
-                <a href="{{ '/poctf/' | relative_url }}">Pointer Overflow CTF</a>
-                <a href="{{ '/thm/' | relative_url }}">TryHackMe</a>
-              </div>
-            </div>
+        <section class="navbar">
+          <a href="https://shivang1209-dot.github.io/Shivang_Tiwari_CV.pdf">Resume</a>
 
-            <div class="dropdown">
-              <button class="dropbtn">Learning Paths
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="{{ '/api-security/' | relative_url }}">APISec University</a>
-                <a href="{{ '/aws-security/' | relative_url }}">AWS Security</a>
-                <a href="{{ '/portswigger/' | relative_url }}">PortSwigger</a>
-                <a href="{{ '/security-blue-team/' | relative_url }}">Security Blue Team</a>
-                <a href="{{ '/microsoft-learn/' | relative_url }}">Microsoft Learn</a>
-                <a href="{{ '/cyberprofessional/' | relative_url }}">Google Cybersecurity</a>
-                <a href="{{ '/powershell/' | relative_url }}">PowerShell</a>
-              </div>
+          <div class="dropdown">
+            <button class="dropbtn">CTF writeups
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="https://shivang1209-dot.github.io/thm/">TryHackMe</a>
+              <a href="https://shivang1209-dot.github.io/ekoctf/">EKO CTF 2024</a>
+              <a href="https://shivang1209-dot.github.io/poctf/">Pointer Overflow CTF 2024-25</a>
+              <a href="https://shivang1209-dot.github.io/metaflashctf/">Meta Flash CTF</a>
+              <a href="https://shivang1209-dot.github.io/1337up/">1337up Live CTF</a>
             </div>
+          </div>
 
-            <a href="{{ '/blogs/' | relative_url }}">Blogs</a>
-            <a href="{{ '/donate/' | relative_url }}">Donate</a>
+          <div class="dropdown">
+            <button class="dropbtn">Resources
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="https://shivang1209-dot.github.io/api-security/">API Security</a>
+              <a href="https://shivang1209-dot.github.io/aws-security/">AWS Red Teaming</a>
+              <a href="https://shivang1209-dot.github.io/portswigger/">Portswigger Academy Notes</a>
+              <a href="https://shivang1209-dot.github.io/security-blue-team/">Security Blue Team Notes</a>
+              <a href="https://shivang1209-dot.github.io/powershell/">Pentesting with Powershell</a>
+              <a href="https://shivang1209-dot.github.io/cyberprofessional/">Google Cybersecurity Professional</a>
+              <a href="https://shivang1209-dot.github.io/microsoft-learn/">Microsoft Learn</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="dropbtn">Projects
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="https://github.com/shivang1209-dot/CipherVision/">CipherVision</a>
+              <a href="https://github.com/shivang1209-dot/SafeDocs//">SafeDocs</a>
+              <a href="https://github.com/shivang1209-dot/Karv_It/">KarvIt</a>
+            </div>
+          </div>
+          
+          <a href="https://shivang1209-dot.github.io/blogs/">Blogs</a>
+
+          <a href="https://shivang1209-dot.github.io/donate/">Donate</a>
         </section>
 
       </div>
@@ -140,16 +189,5 @@
         {{ content }}
       </section>
     </div>
-
-    {% if site.google_analytics %}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', '{{ site.google_analytics }}', 'auto');
-        ga('send', 'pageview');
-      </script>
-    {% endif %}
   </body>
 </html>

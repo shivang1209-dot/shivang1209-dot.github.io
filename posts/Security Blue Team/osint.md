@@ -1,4 +1,5 @@
 ---
+
 layout: post  
 permalink: /posts/security-blue-team/osint/  
 title: "Introduction to OSINT by Security Blue Team"  
@@ -161,7 +162,7 @@ Monitor real-time events like vulnerabilities or cyberattacks. If Tweetdeck is u
 
 ### Google Dorking
 
-Leverage Google's advanced search operators (`operator:keyword`) for:  
+Leverage Google’s advanced search operators (`operator:keyword`) for:  
 - Finding files (e.g., `filetype:pdf`)  
 - Exposing hidden login portals (e.g., `inurl:admin`)  
 - Enumerating subdomains (e.g., `site:example.com -site:www.example.com`)  
@@ -197,4 +198,3 @@ Image recognition tool to track the online usage of your images: [TinEye](https:
 Search for visually similar images or locate image sources: [Image Search](https://images.google.com)
 
 ---
-

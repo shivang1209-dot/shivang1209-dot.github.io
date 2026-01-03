@@ -1,17 +1,17 @@
 ---
 layout: post
 permalink: /posts/AWS-Security/cloudtrail
-title: "Beginner's Guide to AWS CloudTrail for Security"
+title: "Beginner’s Guide to AWS CloudTrail for Security"
 date: 2025-07-12 10:42
 tags: AWS, Cloudtrail
-description: "Beginner's Guide to AWS CloudTrail for Security"
+description: "Beginner’s Guide to AWS CloudTrail for Security"
 ---
 
 # What is AWS CloudTrail?
 
 With CloudTrail, you can `view, search, download, archive, analyze, and respond` to `account activity` across either a single Region in your account, multiple Regions, or even multiple accounts.
 
-![Cloudtrail-1](/assets/images/cloudtrail-1.jpeg)
+![Cloudtrail-1](../../assets/images/cloudtrail-1.jpeg)
 
 Using Cloudtrail, You can find out information like the:
 
@@ -25,9 +25,9 @@ Using Cloudtrail, You can find out information like the:
 
 ## Types of Events
 
-There's a very big difference between logging `Management Events`, `Data Events`, and `Insights Events`.
+There’s a very big difference between logging `Management Events`, `Data Events`, and `Insights Events`.
 
-- `Management Events` logging is what's `enabled by default` when you create an AWS account. It's helpful, but a lot of people misunderstand and believe that it logs more than it actually does.
+- `Management Events` logging is what’s `enabled by default` when you create an AWS account. It’s helpful, but a lot of people misunderstand and believe that it logs more than it actually does.
 
 ---
 
@@ -35,7 +35,7 @@ There's a very big difference between logging `Management Events`, `Data Events`
 
 Management Events capture operations that are performed on resources in your AWS account. This is referred to as `control plane` operations.
 
-A plane is a term used in IT that comes from networking, and it's used to refer to what layer the operation occurs in.
+A plane is a term used in IT that comes from networking, and it’s used to refer to what layer the operation occurs in.
 
 AWS separates most services into either the `control plane` or the `data plane`.
 
@@ -75,7 +75,7 @@ You can also view the information from the CloudTrail console, and you can confi
 
 ## 3 Ways of Recording Data 
 
-We've just learned about how CloudTrail can log Management, Data, and Insights Events. Now let's talk about the 3 ways it has to record this data.
+We’ve just learned about how CloudTrail can log Management, Data, and Insights Events. Now let’s talk about the 3 ways it has to record this data.
 
 The first way is `Event History`, the second is `Trails`, and the third is `CloudTrail Lake`.
 
@@ -85,15 +85,15 @@ The first way is `Event History`, the second is `Trails`, and the third is `Clou
 
 The Event History in CloudTrail is enabled by default when you create your AWS account. This gives you a viewable, searchable, and downloadable record of the past 90 days of management events in an AWS Region.
 
-These records are also immutable, meaning that they can't be modified by anyone once they're generated. This is very important as it means you can can trust the data hasn't been tampered with after it was recorded.
+These records are also immutable, meaning that they can’t be modified by anyone once they’re generated. This is very important as it means you can can trust the data hasn’t been tampered with after it was recorded.
 
-The best part about Event History is that it's completely free.
+The best part about Event History is that it’s completely free.
 
 ---
 
 ### Trails
 
-We talked about how Management Events are stored for 90 days in Event History, and you can create a trail to store those Management Events in a more `permanent S3 bucket` instead so that you `don't lose valuable data after that 90 days`.
+We talked about how Management Events are stored for 90 days in Event History, and you can create a trail to store those Management Events in a more `permanent S3 bucket` instead so that you `don’t lose valuable data after that 90 days`.
 
 Data Events and Insight Events can also be logged by trails if you configure that. So if you are interested in more than just Management Events, creating a trail would be a great way of doing that.
 
@@ -107,13 +107,13 @@ On top of that, you can optionally send logs to CloudWatch Logs by creating a Lo
 
 The third way of recording CloudTrail data is called CloudTrail Lake. Lake is a feature that lets you store, access, and analyze activity for audit and security purposes using a SQL-based query language.
 
-With Lake, the events get stored into what's called `event data store`, and you can even import existing CloudTrail logs from your S3 buckets into an event data store.
+With Lake, the events get stored into what’s called `event data store`, and you can even import existing CloudTrail logs from your S3 buckets into an event data store.
 
 #### Event Data Stores
 
 You can use Event Data Stores to log CloudTrail Management and Data Events, and you can also store AWS Config configuration items, AWS Audit Manager evidence, or other non-AWS events from 3rd party integrations.
 
-These Event Data Stores are immutable collections of event data, and you can choose exactly what data you want stored by configuring what's called `event selectors`.
+These Event Data Stores are immutable collections of event data, and you can choose exactly what data you want stored by configuring what’s called `event selectors`.
 
 An added benefit of using Lake is that it provides integrations which you can use to log and store activity data from outside of AWS. It could be a source from your on-prem VMs and containers, or even SaaS applications.
 
@@ -131,7 +131,7 @@ CloudTrail typically delivers events within an average of about 5 minutes of an 
 
 ---
 
-![Cloudtrail Cheatsheet - 1](/assets/images/aws-cloudtrail-cheatsheet-1.jpg)
+![Cloudtrail Cheatsheet - 1](../../assets/images/aws-cloudtrail-cheatsheet-1.jpg)
 
 ---
 
@@ -164,8 +164,8 @@ There are a few important facts to keep in mind about Event History:
 - When using the AWS Console, you can only view Management Events, not Data Events
 - It only stores data for up to 90 days and then you lose that data
 - You can only use it to search data from a single account, and it will only return events from a single AWS region
-- You can't query multiple different attributes, so unlike CloudTrail Lake, search-ability is very limited
-- You can't exclude AWS KMS or Amazon RDS Data API events
+- You can’t query multiple different attributes, so unlike CloudTrail Lake, search-ability is very limited
+- You can’t exclude AWS KMS or Amazon RDS Data API events
 
 ## AWS Cloudtrail Trails Through CLI
 
@@ -175,7 +175,7 @@ Log file storage follows this path:
 bucket_name/prefix_name/AWSLogs/Account ID/CloudTrail/region/YYYY/MM/DD/file_name.json.gz
 ```
 
-After downloading this file, we're now ready to search this file. Let's start by searching for any and all user identities in this file:
+After downloading this file, we’re now ready to search this file. Let’s start by searching for any and all user identities in this file:
 
 ```bash
 find . -type f -exec jq '.Records[].userIdentity.arn' {} \\;
@@ -185,41 +185,41 @@ find . -type f -exec jq '.Records[].userIdentity.arn' {} \\;
 
 In the `CloudWatch Dashboard`, head over to `Log Groups` in the menu. You should see your `aws-cloudtrail-logs-...` log group. If we click on it, we should see Log streams that we can click on.
 
-Inside of that, we'll find the Log events for that Log group, and we can expand each entry for more information.
+Inside of that, we’ll find the Log events for that Log group, and we can expand each entry for more information.
 
-This information is much more easily digestable, and more importantly, it's searchable!
+This information is much more easily digestable, and more importantly, it’s searchable!
 
-Let's head on over to Amazon SNS, or `Simple Notification Service`.
+Let’s head on over to Amazon SNS, or `Simple Notification Service`.
 
-The first step is to create a `new topic`. You can name this whatever you'd like.
+The first step is to create a `new topic`. You can name this whatever you’d like.
 
-Feel free to look through the other settings but for this we'll leave everything to the defaults.
+Feel free to look through the other settings but for this we’ll leave everything to the defaults.
 
-When you're ready, Create Topic.
+When you’re ready, Create Topic.
 
 We then need to Create subscription.
 
-You have access to multiple different protocols. For this, I just want to send emails to my email address, so I'll select Email and I'll set the Endpoint to my email address.
+You have access to multiple different protocols. For this, I just want to send emails to my email address, so I’ll select Email and I’ll set the Endpoint to my email address.
 
 Keep in mind that you must confirm your subscription from your inbox. This is to prevent spam. Go ahead and Create subscription and then check your email inbox to confirm.
 
 ### CloudWatch Metrics
 
-Back in CloudWatch, make sure you're looking at your Log groups. Select the `CloudTrail log group`, and click on the `Actions` dropdown menu, then click on `Create metric filter`.
+Back in CloudWatch, make sure you’re looking at your Log groups. Select the `CloudTrail log group`, and click on the `Actions` dropdown menu, then click on `Create metric filter`.
 
-This is where we can decide what to filter for. Oftentimes we'd want to filter for `ERROR or AccessDenied` or something similar to that.
+This is where we can decide what to filter for. Oftentimes we’d want to filter for `ERROR or AccessDenied` or something similar to that.
 
 ### Cloudwatch Alarms
 
 Click on `All alarms` in the menu, and then `Create alarm`.
 
-Select the `metric` you created — but keep in mind it can take a minute or so for it to show up. If you don't see it and can't find it by searching, then refresh until you do.
+Select the `metric` you created — but keep in mind it can take a minute or so for it to show up. If you don’t see it and can’t find it by searching, then refresh until you do.
 
-You can then configure the conditions for the alarm based on a few different factors. For example, you could trigger an alarm whenever there's an `Anomaly detection`, or whenever it exceeds or is lower than a certain threshold, etc…
+You can then configure the conditions for the alarm based on a few different factors. For example, you could trigger an alarm whenever there’s an `Anomaly detection`, or whenever it exceeds or is lower than a certain threshold, etc…
 
 ## Working with CloudTrail Insights
 
-Insights uses machine learning to automatically analyze write management events from CloudTrail Trails, and it looks for anomalies. It does that by creating baselines of normal, expected behavior, and whenever there's a significant change from that baseline, it generates an Insight Event.
+Insights uses machine learning to automatically analyze write management events from CloudTrail Trails, and it looks for anomalies. It does that by creating baselines of normal, expected behavior, and whenever there’s a significant change from that baseline, it generates an Insight Event.
 
 ### Enable Insights on a Trail
 
@@ -234,16 +234,16 @@ Insights uses machine learning to automatically analyze write management events 
 *Source: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html*
 
 
-![API Error Rate Example](/assets/images/Cloudtrail-API-Error-Rate.png)
+![API Error Rate Example](../../assets/images/Cloudtrail-API-Error-Rate.png)
 
 Here we have an Insight Event generated for an `API error rate`.
 
 Someone or something is attempting to use the GetRolePolicy API call, which is an IAM API call an attacker could try to use to get information about the IAM policy associated with a role.
 
 
-![API call rate example](/assets/images/Cloudtrail-API-Call-Rate.png)
+![API call rate example](../../assets/images/Cloudtrail-API-Call-Rate.png)
 
-Here's another example for a different API call of RunInstances. Instead of this being captured from an API error rate, this is captured by API call rate. So if we had only enabled API error rate when configuring our Insights settings earlier, then we would not have seen this type of event being generated.
+Here’s another example for a different API call of RunInstances. Instead of this being captured from an API error rate, this is captured by API call rate. So if we had only enabled API error rate when configuring our Insights settings earlier, then we would not have seen this type of event being generated.
 
 ### Attributions
 
@@ -255,7 +255,7 @@ This page gives us the `Top user identity ARNs` during an event, we also get the
 
 ## Working with CloudTrail Lake
 
-We've looked at a few ways of querying our data from CloudTrail, but we've seen limitations with each approach. In this lesson, let's get started with `CloudTrail Lake`.
+We’ve looked at a few ways of querying our data from CloudTrail, but we’ve seen limitations with each approach. In this lesson, let’s get started with `CloudTrail Lake`.
 
 AWS recommends a 3-step process to get started:
 
@@ -267,7 +267,7 @@ AWS recommends a 3-step process to get started:
 
 1. Monitor CloudTrail itself
 
-It's important to `monitor the CloudTrail service` and keep a log of changes made to it. `Attackers always want to hide their tracks`, so they may attempt to stop the CloudTrail service or to make other modifications. If that ever happens, you need to not only get notified, but you also need to keep track of those changes.
+It’s important to `monitor the CloudTrail service` and keep a log of changes made to it. `Attackers always want to hide their tracks`, so they may attempt to stop the CloudTrail service or to make other modifications. If that ever happens, you need to not only get notified, but you also need to keep track of those changes.
 
 * StopLogging
 
@@ -280,7 +280,7 @@ The first API call that we should be monitoring is the StopLogging call. if an a
 *Reference: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/delete-trail.html*
 
 Instead of just trying to stop a trail from logging, an attacker may try to completely delete it.
-Again, this is an API call you most likely won't be using very much if at all, and so it's the next one I would watch for.
+Again, this is an API call you most likely won’t be using very much if at all, and so it’s the next one I would watch for.
 
 * DeregisterOrganizationDelegatedAdmin
 
@@ -294,7 +294,7 @@ If someone is attempting to remove CloudTrail delegated administrator permission
 
 AWS `Identity and Access Management` (or IAM for short), is the service that lets you control `who can be authenticated and authorized to use your AWS resources`, including CloudTrail resources.
 
-If you `don't get your IAM configurations right`, then you will leave your `CloudTrail deployments vulnerable`. So we need to start there when it comes to securing CloudTrail.
+If you `don’t get your IAM configurations right`, then you will leave your `CloudTrail deployments vulnerable`. So we need to start there when it comes to securing CloudTrail.
 
 ### Managing access to the CloudTrail service
 
@@ -306,7 +306,7 @@ If you `don't get your IAM configurations right`, then you will leave your `Clou
 
 When creating policies to grant access to those different types of users, a helpful starting point is to use **AWS-managed policies**, and then modify them to your own custom use case by providing less access.
 
-![AWS Cloudtrail Managed Policies](/assets/images/aws-managed-policy-cloudtrail.png)
+![AWS Cloudtrail Managed Policies](../../assets/images/aws-managed-policy-cloudtrail.png)
 
 As you can see, we currently have 3 managed policies including:
 
@@ -361,21 +361,21 @@ AWS recommends this S3 bucket policy:
 
 This gives permissions to the `CloudTrail service to put objects into that S3 bucket`. Make sure you have a seperate S3 bucket just for collecting these logs, avoid mixing with other data.
 
-This policy by itself, however, `would not grant read permissions to other users, like service users`. Maybe that's how you want to keep it, because you want to *force service users to read the logs through Lake, the API, or CloudWatch Logs*.
+This policy by itself, however, `would not grant read permissions to other users, like service users`. Maybe that’s how you want to keep it, because you want to *force service users to read the logs through Lake, the API, or CloudWatch Logs*.
 
 More on IAM - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security-iam.html
 
 ## Log file integrity
 
-The *integrity of logs is extremely important*. If you can't trust that the logs you are looking at are legitimate logs, then they become nearly useless.
+The *integrity of logs is extremely important*. If you can’t trust that the logs you are looking at are legitimate logs, then they become nearly useless.
 
-It's highly recommended that you `enable CloudTrail log file integrity` for any existing trails you have, but this is a feature that's enabled by default for new trails.
+It’s highly recommended that you `enable CloudTrail log file integrity` for any existing trails you have, but this is a feature that’s enabled by default for new trails.
 
 By having it `enabled`, you can tell whether a `log file was deleted, modified, or you can confidently say that it was unmodified` since it was delivered to S3.
 
 ## Encryption
 
-When people are talking about CloudTrail encryption, they are usually talking about `encryption for data at-rest`, which means the data that's stored on AWS' servers in their data centers.
+When people are talking about CloudTrail encryption, they are usually talking about `encryption for data at-rest`, which means the data that’s stored on AWS’ servers in their data centers.
 
 This type of encryption is important because it helps protect sensitive data from AWS employees being able to access it and see what it is in plaintext, and/or if anyone ever steals the storage drives from those data centers or as they are being discarded after their end of life.
 
@@ -387,7 +387,7 @@ AWS instead recommends that you enable `SSE-KMS`, which is short for `server-sid
 
 To use this, you would first` create a KMS key from the AWS KMS service`, and you can `configure CloudTrail to use that key` when you are creating a trail, or after the fact when you edit the trail.
 
-![Cloudtrail SSE KMS](/assets/images/cloudtrail-sse-kms.png)
+![Cloudtrail SSE KMS](../../assets/images/cloudtrail-sse-kms.png)
 
 You just need to make sure that `the key and S3 bucket` reside in the `same region`.
 
@@ -395,9 +395,9 @@ You just need to make sure that `the key and S3 bucket` reside in the `same regi
 
 Understanding these best practices and implementing them in production can be two very different things — especially when you are busy with your day-to-day responsibilities, and as your AWS environments grow in size and complexity.
 
-To help make sure that we follow these best practices let's take a look at a checklist.
+To help make sure that we follow these best practices let’s take a look at a checklist.
 
-`Security Hub`, if you're not familiar, is a `service we can enable to assess our AWS environments against security industry standards and best practices`.
+`Security Hub`, if you’re not familiar, is a `service we can enable to assess our AWS environments against security industry standards and best practices`.
 
 7 potential issues with CloudTrail deployments
 In this case, by default, Security Hub looks for 7 potential issues with CloudTrail deployments:
@@ -414,7 +414,6 @@ In this case, by default, Security Hub looks for 7 potential issues with CloudTr
 ### Bonus
 
 - [AWS SSK](https://github.com/zoph-io/aws-security-survival-kit/tree/main)
-- [AWS Cloudtrail Commands Cheatsheet](/assets/images/aws-cloudtrail-commands-cheatsheet.png)
-- [Notes PDF](/assets/files/beginners-guide-to-aws-cloudtrail-for-security-ebook.pdf)
-- [My Certificate of Completion](/assets/files/sh1v4ng-Beginner8217s-Guide-to-AWS-CloudTrail-for-Security-Certificate-of-Completion-–-Beginners-Guide-to-AWS-CloudTrail-for-Security-Cybr.pdf)
-
+- [AWS Cloudtrail Commands Cheatsheet](../../assets/images/aws-cloudtrail-commands-cheatsheet.png)
+- [Notes PDF](../../assets/files/beginners-guide-to-aws-cloudtrail-for-security-ebook.pdf)
+- [My Certificate of Completion](../../assets/files/sh1v4ng-Beginner8217s-Guide-to-AWS-CloudTrail-for-Security-Certificate-of-Completion-–-Beginners-Guide-to-AWS-CloudTrail-for-Security-Cybr.pdf)

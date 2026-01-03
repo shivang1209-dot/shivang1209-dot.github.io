@@ -3,7 +3,6 @@ layout: page
 permalink: /poctf/
 description: "My detailed solutions and Write-ups for Pointer Overflow CTF 2024."
 title: "Pointer Overflow CTF 2024 Writeups"
-nav_order: 50
 ---
 
 <img alt="logo" src="/assets/images/poctf2024.png" width="35%" />
