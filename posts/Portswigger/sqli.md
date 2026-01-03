@@ -255,9 +255,10 @@ You can rewrite this code in a way that prevents the user input from interfering
 You can use parameterized queries for any situation where untrusted input appears as data within the query, including the WHERE clause and values in an INSERT or UPDATE statement. They can't be used to handle untrusted input in other parts of the query, such as table or column names, or the ORDER BY clause. Application functionality that places untrusted data into these parts of the query needs to take a different approach, such as:
 
 -  Whitelisting permitted input values.
--  Using different logic to deliver the required behavior.
+- Using different logic to deliver the required behavior.
 
 ___
 
 **Cheatsheet** - [SQL-Injection Cheatsheet](https://portswigger.net/web-security/sql-injection/cheat-sheet)
 ========
+

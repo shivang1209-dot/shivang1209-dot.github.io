@@ -6,3 +6,22 @@ date: 2025-1-20 20:30
 tags: TryHackMe, GPT, MBR, Digital Forensics
 description: "MBR & GPT Analysis - TryHackMe Writeup"
 ---
+
+Initial nmap Scan -
+
+```
+
+```
+
+
+
+---
+Task 1 - Flags
+
+1. Compromise this machine and obtain user.txt
+
+Ans. 
+
+2. Escalate privileges and obtain root.txt  
+
+Ans. 

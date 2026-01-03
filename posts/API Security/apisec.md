@@ -37,9 +37,9 @@ https://api.target-name.com/v1
 
 ## Passive Reconnaissance
 
-`Passive API Reconnaissance` is the act of obtaining `information` about a `target` `without directly interacting` with the target’s systems. When you take this approach, your goal is to find and document `public information` about your target’s attack surface.
+`Passive API Reconnaissance` is the act of obtaining `information` about a `target` `without directly interacting` with the target's systems. When you take this approach, your goal is to find and document `public information` about your target's attack surface.
 
-Typically, passive reconnaissance leverages `open-source intelligence (OSINT)`, which is data collected from publicly available sources. You will be on the hunt for `API endpoints, exposed credentials, version information, API documentation, and information about the API’s business purpose`.
+Typically, passive reconnaissance leverages `open-source intelligence (OSINT)`, which is data collected from publicly available sources. You will be on the hunt for `API endpoints, exposed credentials, version information, API documentation, and information about the API's business purpose`.
 
 ### Google Dorking
 
@@ -59,7 +59,7 @@ However, sometimes you may not get the exact results you were hoping for. If you
 
 ### GitDorking
 
-Regardless of whether your target performs its own development, it’s worth checking `GitHub (www.github.com)` for sensitive information disclosure. `Developers use GitHub to collaborate on software projects`. Searching GitHub for OSINT could reveal your target’s API capabilities, documentation, and secrets, such as API keys, passwords, and tokens, which could prove useful during an attack. Similar to Google Dorking, with GitHub, you can specify parameters like:
+Regardless of whether your target performs its own development, it's worth checking `GitHub (www.github.com)` for sensitive information disclosure. `Developers use GitHub to collaborate on software projects`. Searching GitHub for OSINT could reveal your target's API capabilities, documentation, and secrets, such as API keys, passwords, and tokens, which could prove useful during an attack. Similar to Google Dorking, with GitHub, you can specify parameters like:
 
 - filename:swagger.json
 - extension: .json
@@ -83,7 +83,7 @@ The following table shows some useful Shodan queries.
 
 | Shodan Query                     | Purpose                                                                                                                                                                         |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hostname:"targetname.com"`      | Performs a basic Shodan search for the target’s domain name. Often used as a foundation for more specific queries.                                                              |
+| `hostname:"targetname.com"`      | Performs a basic Shodan search for the target's domain name. Often used as a foundation for more specific queries.                                                              |
 | `content-type: application/json` | Filters results to those endpoints that respond with JSON, commonly used by APIs.                                                                                               |
 | `content-type: application/xml`  | Filters results to endpoints serving XML, useful for discovering XML-based APIs.                                                                                                |
 | `200 OK`                         | Refines the search to endpoints that have returned a successful HTTP 200 response. Note: Some APIs may still return 300 or 400 status if the request is not properly formatted. |
@@ -116,7 +116,7 @@ The Nmap all-port scan will quickly check all 65,535 TCP ports for running servi
 $ nmap -p- [target address] -oA allportscan
 ```
 
-As soon as the general detection scan begins returning results, kick off the all-port scan. Then begin your hands-on analysis of the results. You’ll most likely discover APIs by looking at the results related to HTTP traffic and other indications of web servers. Typically, you’ll find these running on ports 80 and 443, but an API can be hosted on all sorts of different ports. Once you discover a web server, you can perform HTTP enumeration using a Nmap NSE script (use -p to specify which ports you'd like to test).
+As soon as the general detection scan begins returning results, kick off the all-port scan. Then begin your hands-on analysis of the results. You'll most likely discover APIs by looking at the results related to HTTP traffic and other indications of web servers. Typically, you'll find these running on ports 80 and 443, but an API can be hosted on all sorts of different ports. Once you discover a web server, you can perform HTTP enumeration using a Nmap NSE script (use -p to specify which ports you'd like to test).
 
 ```bash
 $ nmap -sV --script=http-enum <target> -p 80,443,8000,8080
@@ -124,7 +124,7 @@ $ nmap -sV --script=http-enum <target> -p 80,443,8000,8080
 
 ### OWASP Amass
 
-OWASP Amass is a `command-line tool` that can map a `target’s external network by collecting OSINT from over 55 different sources`. You can set it to perform `passive or active scans`. If you choose the active option, Amass will collect information directly from the target by requesting its certificate information. Otherwise, it collects data from search engines (such as Google, Bing, and HackerOne), SSL certificate sources (such as GoogleCT, Censys, and FacebookCT), search APIs (such as Shodan, AlienVault, Cloudflare, and GitHub), and the web archive Wayback.
+OWASP Amass is a `command-line tool` that can map a `target's external network by collecting OSINT from over 55 different sources`. You can set it to perform `passive or active scans`. If you choose the active option, Amass will collect information directly from the target by requesting its certificate information. Otherwise, it collects data from search engines (such as Google, Bing, and HackerOne), SSL certificate sources (such as GoogleCT, Censys, and FacebookCT), search APIs (such as Shodan, AlienVault, Cloudflare, and GitHub), and the web archive Wayback.
 
 ```bash
 $ amass enum -active -d target-name.com | grep api
@@ -163,9 +163,9 @@ $ amass enum -active -brute -w /usr/share/wordlists/API_superlist -d [target dom
 
 ### Gobuster
 
-Gobuster can be used to `brute-force URIs and DNS subdomains from the command line`. (If you prefer a graphical user interface, check out OWASP’s Dirbuster.) In Gobuster, you can use wordlists for common directories and subdomains to automatically request every item in the wordlist and send them to a web server and filter the interesting server responses. The results generated from Gobuster will provide you with the URL path and the HTTP status response codes. (While you can brute-force URIs with Burp Suite’s Intruder, Burp Community Edition is much slower than Gobuster.)
+Gobuster can be used to `brute-force URIs and DNS subdomains from the command line`. (If you prefer a graphical user interface, check out OWASP's Dirbuster.) In Gobuster, you can use wordlists for common directories and subdomains to automatically request every item in the wordlist and send them to a web server and filter the interesting server responses. The results generated from Gobuster will provide you with the URL path and the HTTP status response codes. (While you can brute-force URIs with Burp Suite's Intruder, Burp Community Edition is much slower than Gobuster.)
 
-Whenever you’re using a brute-force tool, you’ll have to balance the size of the wordlist and the length of time needed to achieve results. Kali has directory wordlists stored under `/usr/share/wordlists/dirbuster` that are thorough but will take some time to complete.
+Whenever you're using a brute-force tool, you'll have to balance the size of the wordlist and the length of time needed to achieve results. Kali has directory wordlists stored under `/usr/share/wordlists/dirbuster` that are thorough but will take some time to complete.
 
 Example - 
 ```bash
@@ -178,7 +178,7 @@ $ gobuster dir -u target-name.com:<port> -w /home/kali/api/wordlists/common_apis
 
 Example - 
 
-You can perform a quick scan of your target’s URL or IP address like this:
+You can perform a quick scan of your target's URL or IP address like this:
 
 ```bash
 $ kr scan HTTP://127.0.0.1 -w ~/api/wordlists/data/kiterunner/routes-large.kite
@@ -187,5 +187,4 @@ $ kr scan HTTP://127.0.0.1 -w ~/api/wordlists/data/kiterunner/routes-large.kite
 ### DevTools
 
 `DevTools` contains some highly underrated web application hacking tools. The following steps will help you easily and systematically filter through thousands of lines of code in order to find sensitive information in page sources. Begin by opening your target page, and then open *DevTools with F12 or ctr-shift-I*. Adjust the DevTools window until you have enough space to work with. Select the Network tab and then refresh the page (CTRL+R).
-
 

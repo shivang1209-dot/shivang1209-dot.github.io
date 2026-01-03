@@ -78,7 +78,7 @@ DALL-E is a generative AI model specifically designed for working with images. L
 ---
 
 ### **Capabilities of OpenAI AI Models**  
-OpenAI’s AI models exhibit a variety of capabilities, including:
+OpenAI's AI models exhibit a variety of capabilities, including:
 
 1. **Generating Natural Language**:  
    Tasks include summarizing complex text, suggesting alternative wordings, and providing detailed explanations at different reading levels.
@@ -90,3 +90,4 @@ OpenAI’s AI models exhibit a variety of capabilities, including:
    Tasks include generating original images based on text descriptions, creating visual content for publications, and more.
 
 ---
+

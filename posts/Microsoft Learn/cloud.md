@@ -16,7 +16,7 @@ Cloud computing is the delivery of computing services over the internet. These s
 The three main cloud models are: private, public, and hybrid.
 
 1. **Private Cloud**  
-   A private cloud is, in some ways, the natural evolution from a corporate datacenter. It’s a cloud that’s used exclusively by a single entity, providing more control and security over the computing resources.
+   A private cloud is, in some ways, the natural evolution from a corporate datacenter. It's a cloud that's used exclusively by a single entity, providing more control and security over the computing resources.
 
 2. **Public Cloud**  
    A public cloud is built, controlled, and maintained by a third-party cloud provider. Anyone who wants to purchase cloud services can access and use resources from the public cloud, which offers scalability and flexibility.
@@ -71,3 +71,4 @@ In a PaaS environment, the cloud provider manages the physical infrastructure, s
 SaaS is the most complete cloud service model from a product perspective. With SaaS, you are essentially renting or using fully developed software applications hosted on the cloud. These applications are managed by the cloud provider and are accessible via the internet, freeing you from the need to install and maintain software on local systems.
 
 ---
+

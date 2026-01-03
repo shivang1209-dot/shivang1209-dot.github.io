@@ -112,3 +112,4 @@ Many applications attempt to defend against path traversal by **filtering or blo
 ---
 
 By implementing these strategies, you can significantly reduce the risk of path traversal vulnerabilities in your application.
+

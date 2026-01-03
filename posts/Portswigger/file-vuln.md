@@ -60,6 +60,7 @@ While it's clearly better to `prevent dangerous file types being uploaded` in th
 One of the more `obvious ways of preventing users` from uploading malicious scripts is to `blacklist` potentially `dangerous file extensions` like `.php`. The practice of blacklisting is inherently flawed as it's difficult to explicitly block every possible file extension that could be used to execute code. Such blacklists can sometimes be `bypassed` by using `lesser known, alternative file extensions` that may still be executable, such as `.php5, .shtml`, and so on.
 
 #### Overriding the server configuration
+
 As we discussed in the previous section, servers typically won't execute files unless they have been configured to do so.
 For example, before an Apache server will execute PHP files requested by a client, developers might have to add the following directives to their `/etc/apache2/apache2.conf` file:
 
@@ -172,3 +173,4 @@ Allowing users to upload files is commonplace and doesn't have to be dangerous a
 - Rename uploaded files to avoid collisions that may cause existing files to be overwritten.
 - Do not upload files to the server's permanent filesystem until they have been fully validated.
 - As much as possible, use an established framework for preprocessing file uploads rather than attempting to write your own validation mechanisms.
+
