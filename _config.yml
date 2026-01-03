@@ -1,80 +1,37 @@
-title:            home/sh1v4ng
-longtitle:        Shivang Tiwari · Cybersecurity
-author:           Shivang Tiwari
-email:            shivangtiwari2415@gmail.com
-description: >
-  Portfolio · Labs · Walkthroughs · Cybersecurity research notes by Shivang
-
-version:          1.0
-gitbook_version:  3.2.3
-
-url:              "https://shivang1209-dot.github.io"
-baseurl:          ""
-rss:              RSS
-
-remote_theme:     pages-themes/hacker@v0.2.0
-
+#site-setting
+url: "https://shivang1209-dot.github.io"
+baseurl: ""
 github_repository: https://github.com/shivang1209-dot
+theme: jekyll-theme-hacker
+title: home/sh1v4ng
+longtitle: Shivang Tiwari · Cybersecurity
+description: Portfolio · Labs · Walkthroughs · Cybersecurity research notes by Shivang
+show_downloads: false
 
-toc:
-  enabled: true
-  enabled_index: true
-  h_min: 1
-  h_max: 3
+#site-author
+name: Shivang Tiwari
+author: Shivang Tiwari
+email: shivangtiwari2415@gmail.com
+bio: "Delhi-based security researcher focused on offensive security, DFIR, and cloud attack simulations"
 
-favicon_path:     /assets/gitbook/images/favicon.ico
+#github page setting
+github:
+  is_project_page: false
 
-markdown:         kramdown
-kramdown:
-  auto_ids:               true
-  input:                  GFM
-  math_engine:            mathjax
-  smart_quotes:           lsquo,rsquo,ldquo,rdquo
-  toc_levels:             1..6
-  syntax_highlighter:     rouge
-  syntax_highlighter_opts:
-    guess_lang:           true
+#footer
+footer_left: 2024 Shivang Tiwari
+footer_right: Privacy Policy
 
-syntax_highlighter_style: colorful
-markdown_ext:             markdown,mkdown,mkdn,mkd,md
-
-permalink:        /:categories/:year-:month-:day-:title:output_ext
-
-collections:
-  pages:
-    output: true
-    permalink: /:collection/:path/
-    sort_by: nav_order
-
-ordered_collections:
-  - pages
-  - posts
-
-defaults:
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: post
-      nav_order: 50
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-
-page_width:       860px
-
-destination:      ./_site
-incremental:      false
-regenerate:       true
-
-extra_css:
-  - assets/gitbook/custom-local.css
-
+#plugin
 plugins:
-  - jekyll-feed
-  - jekyll-readme-index
-  - jemoji
-  - jekyll-remote-theme
   - jekyll-sitemap
+  - jekyll-feed
+
+#markdown
+markdown: kramdown
+kramdown:
+  auto_ids: true
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    guess_lang: true

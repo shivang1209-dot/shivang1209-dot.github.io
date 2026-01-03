@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: "home/sh1v4ng"
 description: "Portfolio · Write-ups · Lab notes"
 cover: /assets/images/Personatdesk.jpg
@@ -78,12 +78,12 @@ Here’s the stack I reach for day-to-day:
 
 ## Active tracks
 
-| Track | Coverage | Jump in |
-| --- | --- | --- |
-| CTF Writeups | 1337UP, EKOCTF, Meta Flash, Pointer Overflow | [Browse the index](/1337up) |
-| Offensive Playbooks | APISec, AWS Security, PortSwigger labs | [Labs overview](/api-security) |
+| Track                  | Coverage                                                  | Jump in                               |
+| ---------------------- | --------------------------------------------------------- | ------------------------------------- |
+| CTF Writeups           | 1337UP, EKOCTF, Meta Flash, Pointer Overflow              | [Browse the index](/1337up)           |
+| Offensive Playbooks    | APISec, AWS Security, PortSwigger labs                    | [Labs overview](/api-security)        |
 | Blue-Team & DFIR Notes | Security Blue Team, Microsoft Learn, Google Cybersecurity | [Defender notes](/security-blue-team) |
-| Hands-on Scripting | PowerShell labs, custom scripts & automation | [PowerShell lab](/powershell) |
+| Hands-on Scripting     | PowerShell labs, custom scripts & automation              | [PowerShell lab](/powershell)         |
 
 ---
 
