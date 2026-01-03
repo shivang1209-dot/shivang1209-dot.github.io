@@ -7,8 +7,6 @@ tags: TryHackMe, Archangel, Web Exploitation, Privilege Escalation, LFI, Boot2Ro
 description: "Archangel - TryHackMe Writeup"
 ---
 
-# Archangel - TryHackMe Writeup
-
 ## Enumeration
 
 ### Nmap Scan
