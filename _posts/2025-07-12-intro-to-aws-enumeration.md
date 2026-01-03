@@ -2,7 +2,7 @@
 layout: post
 permalink: /posts/AWS-Security/intro-to-aws-enumeration
 title: "Introduction to AWS Enumeration"
-date: 2025-08-011 23:22
+date: 2025-08-11 23:22
 tags: AWS, AWSCLI, Enumeration
 description: "Introduction to AWS Enumeration"
 ---
