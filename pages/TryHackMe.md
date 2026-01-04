@@ -19,3 +19,4 @@ A gamified, hands-on cyber security training platform that you can access throug
 | [MBR and GPT Analysis](/writeups/thm/mbr-gpt-analysis/) | Medium   | Free      |
 | [Injectics](/writeups/thm/injectics/)                   | Medium   | Premium   |
 | [Archangel](/writeups/thm/archangel/)                   | Easy     | Free      |
+| [Publisher](/writeups/thm/publisher/)                   | Easy     | Free      |
