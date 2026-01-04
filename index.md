@@ -52,7 +52,7 @@ Here are the technologies, tools, and frameworks I’m skilled at:
 
 - **TryHackMe**
 
-  [<img src="https://tryhackme-badges.s3.amazonaws.com/S4vi0ur.png" alt="TryHackMe" />](https://tryhackme.com/r/p/S4vi0ur)
+  [<img src="https://tryhackme-badges.s3.amazonaws.com/S4vi0ur.png" alt="TryHackMe" />](https://tryhackme.com/r/p/S4vi0ur) 
 
 - **picoCTF**
 
