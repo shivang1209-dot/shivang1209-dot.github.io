@@ -59,6 +59,7 @@ jobs:
       - name: Checkout source branch
         uses: actions/checkout@v4
         with:
+          persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
 
@@ -75,6 +76,9 @@ jobs:
             rm -f CNAME
           fi
           
+          echo "dev.sh1v4ng.in" > CNAME
+          echo "Created staging CNAME with dev.sh1v4ng.in"
+
           # Remove .github folder if it exists (workflows shouldn't be in staging)
           if [ -d ".github" ]; then
             echo "Removing .github folder..."
@@ -89,38 +93,39 @@ jobs:
             git commit -m "Remove CNAME and .github folder from staging sync" || true
           fi
 
+      - name: Update _config.yml for staging
+        run: |
+          if [ -f "_config.yml" ]; then
+            echo "Updating site URL, Repository URL in _config.yml for staging..."
+            sed -i 's|https://shivang1209-dot.github.io|https://shivang1209-dot-staging.github.io|g' _config.yml
+            sed -i 's|https://github.com/shivang1209-dot|https://github.com-staging/shivang1209-dot|g' _config.yml
+
+            git add _config.yml
+            if ! git diff --cached --quiet; then
+              git commit -m "Update site URL, Repository URL for staging environment" || true
+            fi
+          else
+            echo "_config.yml not found, skipping"
+          fi
+
       - name: Push to staging repository
         env:
           STAGING_TOKEN: ${{ secrets.STAGING_DEPLOY_TOKEN }}
         run: |
-          # Get the source branch name
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-            SOURCE_BRANCH="${{ github.event.pull_request.head.ref }}"
-          else
-            SOURCE_BRANCH="${{ github.ref_name }}"
-          fi
-          
-          echo "Source branch: $SOURCE_BRANCH"
-          echo "Syncing to staging repository main branch..."
-          
-          # Verify token is set (first 4 chars only for security)
+          set -e
+
+          # Remove injected GITHUB_TOKEN auth
+          git config --local --unset-all http.https://github.com/.extraheader || true
+
           if [ -z "$STAGING_TOKEN" ]; then
-            echo "❌ Error: STAGING_DEPLOY_TOKEN secret is not set"
+            echo "❌ STAGING_DEPLOY_TOKEN not available"
             exit 1
           fi
-          echo "Token is set (length: ${#STAGING_TOKEN} characters)"
-          
-          # Remove existing staging remote if it exists
+
           git remote remove staging 2>/dev/null || true
-          
-          # Add staging repository as remote with token authentication
-          # Using x-access-token as username (GitHub PAT format)
           git remote add staging https://x-access-token:${STAGING_TOKEN}@github.com/shivang1209-dot/shivang1209-dot-staging.github.io.git
-          
-          # Push current branch to staging repo's main branch
+
           git push staging HEAD:main --force
-          
-          echo "✓ Successfully synced to staging repository"
 
       - name: Deployment Summary
         run: |
