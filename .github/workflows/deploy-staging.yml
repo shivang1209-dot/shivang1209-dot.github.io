@@ -76,6 +76,9 @@ jobs:
             rm -f CNAME
           fi
           
+          echo "dev.sh1v4ng.in" > CNAME
+          echo "Created staging CNAME with dev.sh1v4ng.in"
+
           # Remove .github folder if it exists (workflows shouldn't be in staging)
           if [ -d ".github" ]; then
             echo "Removing .github folder..."
