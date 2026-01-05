@@ -96,11 +96,13 @@ jobs:
       - name: Update _config.yml for staging
         run: |
           if [ -f "_config.yml" ]; then
-            echo "Updating site URL in _config.yml for staging..."
+            echo "Updating site URL, Repository URL in _config.yml for staging..."
             sed -i 's|https://shivang1209-dot.github.io|https://shivang1209-dot-staging.github.io|g' _config.yml
+            sed -i 's|https://github.com/shivang1209-dot|https://github.com-staging/shivang1209-dot|g' _config.yml
+
             git add _config.yml
             if ! git diff --cached --quiet; then
-              git commit -m "Update site URL for staging environment" || true
+              git commit -m "Update site URL, Repository URL for staging environment" || true
             fi
           else
             echo "_config.yml not found, skipping"
