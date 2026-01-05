@@ -1,0 +1,142 @@
+name: Deploy to Staging
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - '*'
+
+jobs:
+  check-commit-message:
+    runs-on: ubuntu-latest
+    outputs:
+      should-deploy: ${{ steps.check.outputs.should-deploy }}
+      source-branch: ${{ steps.check.outputs.source-branch }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Check commit message for deploy flag
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            # For PRs, check all commits between base and head
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+            COMMITS=$(git log --pretty=%B $BASE_SHA..$HEAD_SHA)
+            SOURCE_BRANCH="${{ github.event.pull_request.head.ref }}"
+            echo "Checking commits in PR from $BASE_SHA to $HEAD_SHA"
+          else
+            # For direct pushes, check the latest commit
+            COMMITS=$(git log -1 --pretty=%B ${{ github.sha }})
+            SOURCE_BRANCH="${{ github.ref_name }}"
+            echo "Checking latest commit: ${{ github.sha }}"
+          fi
+          
+          echo "source-branch=$SOURCE_BRANCH" >> $GITHUB_OUTPUT
+          
+          if echo "$COMMITS" | grep -q ".*--deploy-to-staging.*"; then
+            echo "should-deploy=true" >> $GITHUB_OUTPUT
+            echo "✓ Found --deploy-to-staging flag in commit message(s)"
+          else
+            echo "should-deploy=false" >> $GITHUB_OUTPUT
+            echo "✗ No --deploy-to-staging flag found in commit message(s)"
+          fi
+
+  sync-to-staging:
+    needs: check-commit-message
+    if: needs.check-commit-message.outputs.should-deploy == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: https://dev.sh1v4ng.in
+    
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "shivang1209-dot"
+          git config --global user.email "shivangtiwari2415@gmail.com"
+
+      - name: Remove files that shouldn't be synced to staging
+        run: |
+          # Remove CNAME file if it exists (staging repo should have its own)
+          if [ -f "CNAME" ]; then
+            echo "Removing CNAME file..."
+            rm -f CNAME
+          fi
+          
+          echo "dev.sh1v4ng.in" > CNAME
+          echo "Created staging CNAME with dev.sh1v4ng.in"
+
+          # Remove .github folder if it exists (workflows shouldn't be in staging)
+          if [ -d ".github" ]; then
+            echo "Removing .github folder..."
+            rm -rf .github
+          fi
+          
+          # Stage the removals
+          git add -A
+          
+          # Commit the removals if there are any changes
+          if ! git diff --cached --quiet; then
+            git commit -m "Remove CNAME and .github folder from staging sync" || true
+          fi
+
+      - name: Update _config.yml for staging
+        run: |
+          if [ -f "_config.yml" ]; then
+            echo "Updating site URL, Repository URL in _config.yml for staging..."
+            sed -i 's|https://shivang1209-dot.github.io|https://shivang1209-dot-staging.github.io|g' _config.yml
+            sed -i 's|https://github.com/shivang1209-dot|https://github.com-staging/shivang1209-dot|g' _config.yml
+
+            git add _config.yml
+            if ! git diff --cached --quiet; then
+              git commit -m "Update site URL, Repository URL for staging environment" || true
+            fi
+          else
+            echo "_config.yml not found, skipping"
+          fi
+
+      - name: Push to staging repository
+        env:
+          STAGING_TOKEN: ${{ secrets.STAGING_DEPLOY_TOKEN }}
+        run: |
+          set -e
+
+          # Remove injected GITHUB_TOKEN auth
+          git config --local --unset-all http.https://github.com/.extraheader || true
+
+          if [ -z "$STAGING_TOKEN" ]; then
+            echo "❌ STAGING_DEPLOY_TOKEN not available"
+            exit 1
+          fi
+
+          git remote remove staging 2>/dev/null || true
+          git remote add staging https://x-access-token:${STAGING_TOKEN}@github.com/shivang1209-dot/shivang1209-dot-staging.github.io.git
+
+          git push staging HEAD:main --force
+
+      - name: Deployment Summary
+        run: |
+          SOURCE_BRANCH="${{ needs.check-commit-message.outputs.source-branch }}"
+          echo "## 🚀 Staging Deployment Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Source Branch:** $SOURCE_BRANCH" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Synced to:** shivang1209-dot-staging.github.io (main branch)" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployed to:** https://dev.sh1v4ng.in" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployed at:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "> Note: GitHub Pages will automatically deploy from the staging repository's main branch." >> $GITHUB_STEP_SUMMARY
+

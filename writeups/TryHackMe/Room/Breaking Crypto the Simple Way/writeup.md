@@ -578,3 +578,5 @@ To secure cryptographic implementations and prevent the vulnerabilities explored
 ## Conclusion
 
 This room has demonstrated that cryptographic security is not just about using strong algorithms—it's about implementing them correctly. Common mistakes like weak keys, exposed secrets, and unauthenticated encryption can completely undermine the security of a system. By understanding these vulnerabilities and following best practices, you can help build more secure applications and better protect sensitive data.
+
+---
