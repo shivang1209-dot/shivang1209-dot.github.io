@@ -81,8 +81,19 @@ jobs:
           echo "Source branch: $SOURCE_BRANCH"
           echo "Syncing to staging repository main branch..."
           
-          # Add staging repository as remote
-          git remote add staging https://$STAGING_TOKEN@github.com/shivang1209-dot/shivang1209-dot-staging.github.io.git
+          # Verify token is set (first 4 chars only for security)
+          if [ -z "$STAGING_TOKEN" ]; then
+            echo "❌ Error: STAGING_DEPLOY_TOKEN secret is not set"
+            exit 1
+          fi
+          echo "Token is set (length: ${#STAGING_TOKEN} characters)"
+          
+          # Remove existing staging remote if it exists
+          git remote remove staging 2>/dev/null || true
+          
+          # Add staging repository as remote with token authentication
+          # Using x-access-token as username (GitHub PAT format)
+          git remote add staging https://x-access-token:${STAGING_TOKEN}@github.com/shivang1209-dot/shivang1209-dot-staging.github.io.git
           
           # Push current branch to staging repo's main branch
           git push staging HEAD:main --force
