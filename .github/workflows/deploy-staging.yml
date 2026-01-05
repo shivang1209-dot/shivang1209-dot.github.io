@@ -1,0 +1,104 @@
+name: Deploy to Staging
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - '*'
+
+jobs:
+  check-commit-message:
+    runs-on: ubuntu-latest
+    outputs:
+      should-deploy: ${{ steps.check.outputs.should-deploy }}
+      source-branch: ${{ steps.check.outputs.source-branch }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Check commit message for deploy flag
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            # For PRs, check all commits between base and head
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+            COMMITS=$(git log --pretty=%B $BASE_SHA..$HEAD_SHA)
+            SOURCE_BRANCH="${{ github.event.pull_request.head.ref }}"
+            echo "Checking commits in PR from $BASE_SHA to $HEAD_SHA"
+          else
+            # For direct pushes, check the latest commit
+            COMMITS=$(git log -1 --pretty=%B ${{ github.sha }})
+            SOURCE_BRANCH="${{ github.ref_name }}"
+            echo "Checking latest commit: ${{ github.sha }}"
+          fi
+          
+          echo "source-branch=$SOURCE_BRANCH" >> $GITHUB_OUTPUT
+          
+          if echo "$COMMITS" | grep -q ".*--deploy-to-staging.*"; then
+            echo "should-deploy=true" >> $GITHUB_OUTPUT
+            echo "✓ Found --deploy-to-staging flag in commit message(s)"
+          else
+            echo "should-deploy=false" >> $GITHUB_OUTPUT
+            echo "✗ No --deploy-to-staging flag found in commit message(s)"
+          fi
+
+  sync-to-staging:
+    needs: check-commit-message
+    if: needs.check-commit-message.outputs.should-deploy == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: https://dev.sh1v4ng.in
+    
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push to staging repository
+        env:
+          STAGING_TOKEN: ${{ secrets.STAGING_DEPLOY_TOKEN }}
+        run: |
+          # Get the source branch name
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            SOURCE_BRANCH="${{ github.event.pull_request.head.ref }}"
+          else
+            SOURCE_BRANCH="${{ github.ref_name }}"
+          fi
+          
+          echo "Source branch: $SOURCE_BRANCH"
+          echo "Syncing to staging repository main branch..."
+          
+          # Add staging repository as remote
+          git remote add staging https://$STAGING_TOKEN@github.com/shivang1209-dot/shivang1209-dot-staging.github.io.git
+          
+          # Push current branch to staging repo's main branch
+          git push staging HEAD:main --force
+          
+          echo "✓ Successfully synced to staging repository"
+
+      - name: Deployment Summary
+        run: |
+          SOURCE_BRANCH="${{ needs.check-commit-message.outputs.source-branch }}"
+          echo "## 🚀 Staging Deployment Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Source Branch:** $SOURCE_BRANCH" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Synced to:** shivang1209-dot-staging.github.io (main branch)" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployed to:** https://dev.sh1v4ng.in" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployed at:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "> Note: GitHub Pages will automatically deploy from the staging repository's main branch." >> $GITHUB_STEP_SUMMARY
+
