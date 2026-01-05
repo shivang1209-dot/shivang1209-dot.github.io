@@ -7,6 +7,7 @@ description: "Welcome to my Portfolio/Write-up/Blogging Website. Yea, all in one
 
 Hello there! If you don't know me, here's a short introduction:  
 
+
 I'm **Shivang Tiwari**, a Cybersecurity Enthusiast from New Delhi, India, with major interests in **Vulnerability Assessment/Penetration Testing** and **Security Research**. I am currently in my final year of undergraduate studies in Computer Applications, specializing in Cybersecurity.
 
 I also have a keen interest in programming languages like **Python** and **GoLang**, along with proficient **Shell Scripting** skills. You can explore my various projects on my [GitHub](https://github.com/shivang1209-dot).  
