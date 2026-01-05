@@ -13,10 +13,11 @@ A gamified, hands-on cyber security training platform that you can access throug
 
 ## List of Rooms
 
-| Room Name                                               | Category | Room Type |
-| ------------------------------------------------------- | -------- | --------- |
-| [Advent of Cyber 2024](/writeups/thm/aoc2024/)          | Easy     | Free      |
-| [MBR and GPT Analysis](/writeups/thm/mbr-gpt-analysis/) | Medium   | Free      |
-| [Injectics](/writeups/thm/injectics/)                   | Medium   | Premium   |
-| [Archangel](/writeups/thm/archangel/)                   | Easy     | Free      |
-| [Publisher](/writeups/thm/publisher/)                   | Easy     | Free      |
+| Room Name                                                       | Category | Room Type |
+| --------------------------------------------------------------- | -------- | --------- |
+| [Advent of Cyber 2024](/writeups/thm/aoc2024/)                  | Easy     | Free      |
+| [MBR and GPT Analysis](/writeups/thm/mbr-gpt-analysis/)         | Medium   | Free      |
+| [Injectics](/writeups/thm/injectics/)                           | Medium   | Premium   |
+| [Archangel](/writeups/thm/archangel/)                           | Easy     | Free      |
+| [Publisher](/writeups/thm/publisher/)                           | Easy     | Free      |
+| [Breaking Crypto the Simple Way](/writeups/thm/breakingcrypto/) | Easy     | Free      |

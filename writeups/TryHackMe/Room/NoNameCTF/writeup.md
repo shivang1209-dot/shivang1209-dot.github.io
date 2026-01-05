@@ -1,10 +1,10 @@
 ---
 layout: post
-permalink: /writeups/thm/mbr-gpt-analysis/
-title: "MBR & GPT Analysis - TryHackMe Writeup"
-date: 2025-1-20 20:30
-tags: TryHackMe, GPT, MBR, Digital Forensics
-description: "MBR & GPT Analysis - TryHackMe Writeup"
+permalink: /writeups/thm/nonamectf/
+title: "No Name CTF - TryHackMe Writeup"
+date: 2026-1-04 10:30
+tags: TryHackMe, CTF, Boot2Root, PrivEsc
+description: "No Name CTF- TryHackMe Writeup"
 ---
 
 Initial nmap Scan -
