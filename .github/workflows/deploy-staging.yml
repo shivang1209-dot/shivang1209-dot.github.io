@@ -107,8 +107,7 @@ jobs:
           git remote remove staging 2>/dev/null || true
           git remote add staging https://x-access-token:${STAGING_TOKEN}@github.com/shivang1209-dot/shivang1209-dot-staging.github.io.git
 
-          git push staging HEAD:main
-
+          git push staging HEAD:main --force
 
       - name: Deployment Summary
         run: |
