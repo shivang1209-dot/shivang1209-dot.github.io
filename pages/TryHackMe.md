@@ -21,4 +21,4 @@ A gamified, hands-on cyber security training platform that you can access throug
 | [Archangel](/writeups/thm/archangel/)                                    | Easy     | Free      |
 | [Publisher](/writeups/thm/publisher/)                                    | Easy     | Free      |
 | [Breaking Crypto the Simple Way](/writeups/thm/breakingcrypto/)          | Easy     | Free      |
-| [Breaking Crypto the Simple Way](/writeups/thm/length-extension-attack/) | Medium   | Free      |
+| [Length Extension Attacks](/writeups/thm/length-extension-attack/)       | Medium   | Free      |
