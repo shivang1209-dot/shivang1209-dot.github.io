@@ -132,7 +132,7 @@ Let's locate the user flag in the `/home` directory:
 
 ```bash
 www-data@41c976e507f8:/home/think$ cat user.txt
-fa229046d44eda6a3598c73ad96f4ca5
+<REDACTEDDDD>
 ```
 
 Great! We also notice a `.ssh` folder. Let's retrieve the `id_rsa` private key and attempt SSH login.
@@ -328,7 +328,7 @@ ls -la /tmp/rootbash
 rootbash-5.0# whoami
 root
 rootbash-5.0# cat /root/root.txt
-3a4225cc9e85709adda6ef55d6a4f2ca
+<REDACTEDDDD>
 ```
 
 ![Root Flag](./Resources/rootflag.png)
@@ -349,8 +349,8 @@ Challenge solved!
 
 1. **What is the user flag?**
 
-   **Ans.** `fa229046d44eda6a3598c73ad96f4ca5`
+   **Ans.** `REDACTED`
 
 2. **What is the root flag?**
 
-   **Ans.** `3a4225cc9e85709adda6ef55d6a4f2ca`
+   **Ans.** `REDACTED`

@@ -77,10 +77,10 @@ User - dev@injectics.thm
 User - superadmin@injectics.thm
 
 Default credentials:
-| Email                    | Password             |
-| ------------------------ | -------------------- |
-| superadmin@injectics.thm | superSecurePasswd101 |
-| dev@injectics.thm        | devPasswd123         |
+| Email                    | Password   |
+| ------------------------ | ---------- |
+| superadmin@injectics.thm | <REDACTED> |
+| dev@injectics.thm        | <REDACTED> |
 ```
 
 Checking `composer.json` for vulnerabilities:
@@ -115,12 +115,12 @@ Using SQL injection to drop the users table:
 ; DROP TABLE users;
 ```
 
-Logging in as `superadmin@injectics.thm` with `superSecurePasswd101` and obtaining the first flag:
+Logging in as `superadmin@injectics.thm` with `<REDACTED>(password)` and obtaining the first flag:
 
 ![Flag 1](Resources/flag1.png)
 
 ```
-THM{INJECTICS_ADMIN_PANEL_007}
+THM{REDACTED}
 ```
 
 ## Server-Side Template Injection (SSTI)
@@ -173,7 +173,7 @@ Reading the flag:
 
 Final flag:
 ```liquid
-THM{5735172b6c147f4dd649872f73e0fdea}
+THM{REDACTED}
 ```
 
 ---
