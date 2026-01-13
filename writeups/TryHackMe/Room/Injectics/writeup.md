@@ -7,7 +7,7 @@ tags: TryHackMe, Injectics, SSTI, SQLi
 description: "Injectics - TryHackMe Writeup"
 ---
 
-# Injectics - TryHackMe Writeup
+# [Injectics - TryHackMe](https://tryhackme.com/room/injectics)
 
 ## Enumeration
 
