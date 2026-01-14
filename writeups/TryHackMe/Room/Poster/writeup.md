@@ -686,7 +686,7 @@ With alison's credentials, I attempted to switch users:
 su alison
 ```
 
-**Password:** `p4ssw0rdS3cur3!#`
+**Password:** `###########`
 
 **Success!**
 

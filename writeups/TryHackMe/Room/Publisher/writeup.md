@@ -349,8 +349,8 @@ Challenge solved!
 
 1. **What is the user flag?**
 
-   **Ans.** `REDACTED`
+   **Ans.** `THM{REDACTED}`
 
 2. **What is the root flag?**
 
-   **Ans.** `REDACTED`
+   **Ans.** `THM{REDACTED}`
