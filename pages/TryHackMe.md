@@ -23,3 +23,4 @@ A gamified, hands-on cyber security training platform that you can access throug
 | [Poster](/writeups/thm/poster/)                                    | Easy     | Free      |
 | [Breaking Crypto the Simple Way](/writeups/thm/breakingcrypto/)    | Easy     | Free      |
 | [Length Extension Attacks](/writeups/thm/length-extension-attack/) | Medium   | Free      |
+| [Tokyo Ghoul](/writeups/thm/tokyo-ghoul/)                          | Medium   | Free      |
