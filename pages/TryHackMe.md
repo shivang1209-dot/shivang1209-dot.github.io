@@ -25,3 +25,4 @@ A gamified, hands-on cyber security training platform that you can access throug
 | [Length Extension Attacks](/writeups/thm/length-extension-attack/) | Medium   | Free      |
 | [Tokyo Ghoul](/writeups/thm/tokyo-ghoul/)                          | Medium   | Free      |
 | [MrRobot CTF](/writeups/thm/mrrobot-ctf/)                          | Medium   | Free      |
+| [Whiterose](/writeups/thm/whiterose/)                              | Easy     | Free      |
