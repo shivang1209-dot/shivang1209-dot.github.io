@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /writeups/thm/mrrobot/
+permalink: /writeups/thm/-ctf/
 title: "Mr Robot CTF - TryHackMe Writeup"
 date: 2026-01-16 10:30
 tags: TryHackMe, CTF, Boot2Root, WordPress, Privilege Escalation, SUID
