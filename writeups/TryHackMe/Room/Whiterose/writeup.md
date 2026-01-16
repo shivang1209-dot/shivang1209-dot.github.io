@@ -2,7 +2,7 @@
 layout: post
 permalink: /writeups/thm/whiterose/
 title: "Whiterose - TryHackMe Writeup"
-date: 2026-01-16 10:30
+date: 2026-01-17 00:30
 tags: TryHackMe, CTF, Boot2Root, SSTI, EJS, Privilege Escalation, Sudoedit
 description: "Whiterose - TryHackMe Writeup"
 ---
