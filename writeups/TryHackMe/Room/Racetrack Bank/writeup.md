@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /writeups/thm/racetrack-bank/
+permalink: /writeups/thm/racetrackbank/
 title: "Racetrack Bank - TryHackMe Writeup"
 date: 2026-01-18 10:30
 tags: TryHackMe, CTF, Boot2Root, Race Condition, Node.js, RCE, Privilege Escalation, Cronjob
