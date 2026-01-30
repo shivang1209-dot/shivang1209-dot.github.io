@@ -7,7 +7,7 @@ tags: TryHackMe, OSINT, Reconnaissance, Social Media, Base64
 description: "Operation Slither - TryHackMe Writeup"
 ---
 
-## TryHackMe Room - [Operation Slither](https://tryhackme.com/room/operationslither)
+## TryHackMe Room - [Operation Slither](https://tryhackme.com/room/operationslitherIU)
 
 Follow the leads and find who's behind this operation.
 
