@@ -28,4 +28,5 @@ A gamified, hands-on cyber security training platform that you can access throug
 | [Whiterose](/writeups/thm/whiterose/)                              | Easy     | Free      |
 | [Racetrack Bank](/writeups/thm/racetrackbank/)                     | Hard     | Free      |
 | [Retro](/writeups/thm/retro/)                                      | Hard     | Free      |
+| [Hacker Vs. Hacker](/writeups/thm/hackervshacker/)                 | Easy     | Free      |
 | [Operation Slither](/writeups/thm/operation-slither/)              | Easy     | Free      |
