@@ -30,3 +30,4 @@ A gamified, hands-on cyber security training platform that you can access throug
 | [Retro](/writeups/thm/retro/)                                      | Hard     | Free      |
 | [Hacker Vs. Hacker](/writeups/thm/hackervshacker/)                 | Easy     | Free      |
 | [Operation Slither](/writeups/thm/operation-slither/)              | Easy     | Free      |
+| [Colddbox: Easy](/writeups/thm/colddbox/)                          | Easy     | Free      |
