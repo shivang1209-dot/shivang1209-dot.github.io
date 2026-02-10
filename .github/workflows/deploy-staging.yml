@@ -139,4 +139,3 @@ jobs:
           echo "**Deployed at:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "> Note: GitHub Pages will automatically deploy from the staging repository's main branch." >> $GITHUB_STEP_SUMMARY
-
