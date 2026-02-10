@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: staging
-      url: https://dev.archive.sh1v4ng.in
+      url: https://dev.sh1v4ng.in
     
     steps:
       - name: Checkout source branch
@@ -76,8 +76,8 @@ jobs:
             rm -f CNAME
           fi
           
-          echo "dev.archive.sh1v4ng.in" > CNAME
-          echo "Created staging CNAME with dev.archive.sh1v4ng.in"
+          echo "dev.sh1v4ng.in" > CNAME
+          echo "Created staging CNAME with dev.sh1v4ng.in"
 
           # Remove .github folder if it exists (workflows shouldn't be in staging)
           if [ -d ".github" ]; then
@@ -135,7 +135,7 @@ jobs:
           echo "**Source Branch:** $SOURCE_BRANCH" >> $GITHUB_STEP_SUMMARY
           echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
           echo "**Synced to:** shivang1209-dot-staging.github.io (main branch)" >> $GITHUB_STEP_SUMMARY
-          echo "**Deployed to:** https://dev.archive.sh1v4ng.in" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployed to:** https://dev.sh1v4ng.in" >> $GITHUB_STEP_SUMMARY
           echo "**Deployed at:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "> Note: GitHub Pages will automatically deploy from the staging repository's main branch." >> $GITHUB_STEP_SUMMARY
